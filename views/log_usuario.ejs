@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Log de usuario</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/style.css">
+
+    </head>
+    <body>
+        <!-- partial:index.partial.html -->
+
+
+        <div  id="contenedor_tabla">
+            <% if((activo!='')&&(activo!='UNDEFINED')&&(activo!='undefined')){ %>
+            <label id="usuario_activo">Usuario sesión  : <%= activo %> &nbsp;&nbsp;<a href="/salir" class="btn btn-danger exit ">Salir</a></label>
+            <br/>  
+
+            <label >Log de Usuario  : <%= activo %></label>       
+            <table id="tablaLog" class="table table-hover table-bordered" style="width:100%; font-size: 14px; ">
+                <thead>
+                    <tr>
+                        <th>Fecha & hora</th>
+                        <th>Descripcion</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% if(data){ %>
+                    <% for(var i=0; i < data.length; i++){ %>
+                    <tr>
+                        <td><%= data[i].fecha_hora %></td>
+                        <td><%= data[i].descripcion %></td>
+                    </tr>
+                    <% } %>
+                    <% } %>            
+                </tbody>
+            </table> 
+            <a onclick="volver();" class="btn btn-danger btn_form">Volver</a>
+            <% } else { %>
+            <div align="center">
+                <label>Usuario sin sesión</label><br>
+                <a href="/" class="btn btn-danger btn_form" >Login</a>
+            </div>  
+            <% }%>
+        </div><!--login-form-wrap-->
+        <!-- partial -->
+
+    </body>
+</html>
+<script>
+    function volver() {
+        window.history.back();
+    }
+</script>

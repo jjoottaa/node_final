@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Nuevo libro</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/style.css">
+
+    </head>
+
+
+
+    <div  id="contenedor_tabla">
+        <% if((activo!='')&&(activo!='UNDEFINED')&&(activo!='undefined')){ %>
+        <label id="usuario_activo">Usuario sesión  : <%= activo %> &nbsp;&nbsp;<a href="/salir" class="btn btn-danger exit ">Salir</a></label>
+        <div>
+            <form action="/add" method="post" enctype="multipart/form-data" >  
+                <label class="label_etiqueta">TITULO</label>
+                <input class="input_nuevo" type="text" name="titulo" id="titulo" required><br>          
+                <label class="label_etiqueta">AUTOR</label>
+                <input class="input_nuevo" type="text" name="autor" id="autor" required /><br>
+                <label class="label_etiqueta">DESCRIPCION</label><br>
+                <textarea class="input_nuevo" name="descripcion" id="descripcion" rows="9" required></textarea><br>
+                <label class="label_etiqueta">IMAGEN</label>                
+                <input type="file" name="imagen" id="imagen" required><br><br>
+
+
+                <input id="boton_enviar"  type="submit"  value="Enviar">
+            </form>        
+        </div>
+        <a onclick="volver();" class="btn btn-danger btn_form">Volver</a>
+        <br/> 
+        <% } else { %>
+        <div align="center">
+            <label>Usuario sin sesión</label><br>
+            <a href="/" class="btn btn-danger btn_form" >Login</a>
+        </div>     
+        <% }%>             
+    </div>
+
+</body>
+</html>
+<script>
+    function volver() {
+        window.history.back();
+    }
+</script>

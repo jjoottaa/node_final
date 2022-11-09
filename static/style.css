@@ -1,0 +1,381 @@
+body {
+  background-color: #9f9da7;
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #2b3e51;
+}
+
+h2 {
+  font-weight: 300;
+  text-align: center;
+}
+
+p {
+  position: relative;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  color: #fff;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+a:focus, a:hover,
+a:link:focus,
+a:link:hover,
+a:visited:focus,
+a:visited:hover,
+a:active:focus,
+a:active:hover {
+  color: #329dd5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#login-form-wrap {
+  background-color: #fff;
+  width: 35%;
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px 0 0 0;
+  border-radius: 4px;
+  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+}
+
+#contenedor_tabla {
+  background-color: #fff;
+  width: 90%;
+  height: 550px;
+  margin: 30px auto;
+  /*text-align: center;*/
+  padding: 20px 20px 20px 20px;
+  border-radius: 4px;
+  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+}
+
+#login-form {
+  padding: 0 60px;
+}
+
+input, select {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 4px;
+}
+
+input[type="text"],
+input[type="password"],
+/*input[type="file"],*/
+input[type="email"] {
+  width: 100%;
+  padding: 0 0 0 10px;
+  margin: 0;
+  color: #8a8b8e;
+  border: 1px solid #c2c0ca;
+  font-style: normal;
+  font-size: 16px;
+    -webkit-appearance: none;
+     -moz-appearance: none;
+        appearance: none;
+  position: relative;
+  display: inline-block;
+  background: none;
+}
+
+.class_p{
+  margin-left: -20% !important;
+}
+.class_nuevos{
+  width: 50% !important;
+  height: 40px  !important;
+  padding: none !important;
+  margin: none !important;
+  color: #8a8b8e;
+  border: 1px solid #c2c0ca;
+  font-style: normal;
+  font-size: 14px !important;
+    -webkit-appearance: none;
+     -moz-appearance: none;
+        appearance: none;
+  position: relative;
+  display: inline-block;
+  background: none;
+}
+
+
+select {
+  width: 100%;
+  padding: 0 0 0 10px;
+  margin: 0;
+  color: #8a8b8e;
+  border: 1px solid #c2c0ca;
+  font-style: normal;
+  font-size: 16px;
+  /*  -webkit-appearance: none;
+     -moz-appearance: none;
+        appearance: none;*/
+  position: relative;
+  display: inline-block;
+  background: none;
+}
+
+ textarea{
+  width: 100%;
+  max-width: none !important;
+  padding: 0 0 0 10px;
+  margin: 0;
+  color: #8a8b8e;
+  border: 1px solid #c2c0ca;
+  font-style: normal;
+  font-size: 16px;
+    -webkit-appearance: none;
+     -moz-appearance: none;
+        appearance: none;
+  position: relative;
+  display: inline-block;
+  background: none;
+
+
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+textarea:focus,
+select,
+input[type="email"]:focus {
+  border-color: #3ca9e2;
+}
+input[type="text"]:focus:invalid,
+input[type="file"]:focus:invalid,
+input[type="password"]:focus:invalid,
+textarea:focus:invalid,
+/*select,*/
+input[type="email"]:focus:invalid {
+  color: #cc1e2b;
+  border-color: #cc1e2b;
+}
+
+input[type="text"]:valid ~ .validation,
+input[type="password"]:valid ~ .validation,
+input[type="file"]:valid ~ .validation,
+/*select,*/
+textarea:valid ~ .validation ,
+input[type="email"]:valid ~ .validation {
+  display: block;
+  border-color: #0C0;
+}
+
+input[type="text"]:valid ~ .validation span,
+input[type="password"]:valid ~ .validation span,
+input[type="file"]:valid ~ .validation span,
+textarea:valid ~ .validation span,
+/*select,*/
+input[type="email"]:valid ~ .validation span {
+  background: #0C0;
+  position: absolute;
+  border-radius: 6px;
+}
+
+input[type="text"]:valid ~ .validation span:first-child,
+input[type="password"]:valid ~ .validation span:first-child,
+input[type="file"]:valid ~ .validation span:first-child,
+textarea:valid ~ .validation span:first-child,
+/*select,*/
+input[type="email"]:valid ~ .validation span:first-child {
+  top: 30px;
+  left: 14px;
+  width: 20px;
+  height: 3px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+input[type="text"]:valid ~ .validation span:last-child,
+input[type="password"]:valid ~ .validation span:last-child,
+input[type="file"]:valid ~ .validation span:last-child,
+textarea:valid ~ .validation span:last-child,
+/*select,*/
+input[type="email"]:valid ~ .validation span:last-child {
+  top: 35px;
+  left: 8px;
+  width: 11px;
+  height: 3px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.validation {
+  display: none;
+  position: absolute;
+  content: " ";
+  height: 0px;
+  width: 30px;
+  right: 15px;
+  top: 0px;
+}
+.exit{
+  height: 20px !important;
+  width: 60px !important;
+  font-size: 14px !important;
+  --bs-btn-padding-x: none !important;
+}
+
+input[type="submit"] {
+  border: none;
+  display: block;
+  background-color: #3ca9e2;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+#usuario_activo {
+  text-align:right;
+  padding-left: 75%;
+  font-size: 12px;  
+  text-transform: uppercase;
+}
+#nuevo_libro {
+  width: 10%;
+  border: none;
+  display: block;
+ /* box-sizing: border-box;*/   
+  outline:auto;
+  height: 40px;
+  line-height: 6px;
+  border-radius: 1px;
+  background-color: #3ca9e2;
+  color: #fff;
+  font-weight:bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 10px;    
+  cursor: pointer;
+  text-align: center;
+}
+input[type="submit"]:hover {
+  background-color: #329dd5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#create-account-wrap {
+  background-color: #eeedf1;
+  color: #8a8b8e;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 0 0 4px 4px;
+}
+
+/*VISTA NUEVOS LIBROS*/
+form{
+  font-size:14px;
+  /*color:#6B121B;*/
+  border-radius:7px;
+  /*background-color:#D4DAE4;*/
+  /*border:1px dotted #B8BFCB;*/
+  /*padding:14px;*/
+}
+
+
+
+.input_nuevo{
+  background-color:white;
+  border-radius:4px;
+  color:#264F96;
+  font-size:14px;
+  padding:3px 3px 3px 10px;
+  outline: none;
+  height: 45px !important;
+  width: 100% !important;
+}
+
+#boton_enviar{
+  padding:6px 30px;
+  background-color:#2A477A;
+  color:white;
+  font-size:14px;
+}
+
+#boton_enviar:hover{
+  cursor:pointer;
+  background-color:#5376B2;
+}
+
+/*
+textarea{
+  width:100% !important;
+  height:50px;
+ max-width:493px;
+  min-width:300px;
+  max-height:200px;
+  min-height:50px;
+  margin-top:4px;
+ border-radius:4px;
+  color:#264F96;
+  font-size:16px;
+  padding:3px 3px 3px 10px;
+}
+
+[required]{
+  border-color:#4AA248;
+  box-shadow:0 0 3px #4AA248;
+}
+*/
+/*
+:invalid{
+  border-color:#FF7F7F;
+  box-shadow:0 0 3px #FF7F7F;
+}
+*/
+.label_etiqueta{
+   text-align: left !important;
+   margin-left: -100 !important;
+   font-weight: bold;
+}
+/**/
+
+
+table, tr td {
+  border: 1px solid #c2c0ca
+}
+tbody {
+  display: block;
+  height: 320px;
+  overflow: auto;
+}
+thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;/* even columns width , fix width of table too*/
+}
+thead {
+  width: calc( 100% - 1em )/* scrollbar is average 1em/16px width, remove it from thead width */
+}
+table {
+  width: 400px;
+}
+
+.btn_form{
+--bs-btn-bg: #3ca9e2 !important; 
+--bs-btn-border-color: #3387b4 !important;
+--bs-btn-hover-color: rgb(0, 0, 0) !important;
+--bs-btn-hover-bg: #5ab3e4 !important;
+--bs-btn-hover-border-color: #5091b4 !important;
+--bs-btn-padding-x: none !important;
+}

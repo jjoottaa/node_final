@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Editar libro</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/style.css">
+
+    </head>
+
+
+
+    <div  id="contenedor_tabla">
+        <% if((activo!='')&&(activo!='UNDEFINED')&&(activo!='undefined')){ %>
+        <label id="usuario_activo">Usuario sesión  : <%= activo %> &nbsp;&nbsp;<a href="/salir" class="btn btn-danger exit ">Salir</a></label>
+        <div>
+            <% if(data){ %>
+            <img src="/upload/<%= data[0].path_img %>" alt="<%= data[0].path_img %>" width="150" height="150">
+
+            <form action="/modifica" method="get" enctype="multipart/form-data" >  
+                <input type="hidden" name="id" id="id" value="<%= data[0].id %>"><br>  
+                <label class="label_etiqueta">TITULO</label>
+                <input class="input_nuevo" type="text" name="titulo" id="titulo"  value="<%= data[0].titulo %>" required><br>          
+                <label class="label_etiqueta">AUTOR</label>
+                <input class="input_nuevo" type="text" name="autor" id="autor" value="<%= data[0].autor %>" required /><br>
+                <label class="label_etiqueta">DESCRIPCION</label><br>
+                <textarea class="input_nuevo" name="descripcion" id="descripcion"  rows="9" required><%= data[0].desceipcion %></textarea><br>
+
+                <input id="boton_actualiza"  type="submit"  value="Actualizar">
+            </form> 
+            <a onclick="volver();" class="btn btn-danger btn_form">Volver</a>
+            <% } %>
+
+
+        </div>
+        <br/>     
+        <% } else { %>
+        <div align="center">
+            <label>Usuario sin sesión</label><br>
+            <a href="/" class="btn btn-danger btn_form" >Login</a>
+        </div>     
+        <% }%>           
+    </div>
+
+</body>
+</html>
+<script>
+    function volver() {
+        window.history.back();
+    }
+</script>

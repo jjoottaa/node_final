@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Listado de libros</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/style.css">
+
+    </head>
+    <body>
+        <!-- partial:index.partial.html -->
+
+
+        <div  id="contenedor_tabla">
+            <% if((activo!='')&&(activo!='UNDEFINED')&&(activo!='undefined')){ %>
+            <label id="usuario_activo">Usuario sesión  : <%= activo %> &nbsp;&nbsp;<a href="/salir" class="btn btn-danger exit ">Salir</a></label>
+            <div>
+                <a href="/carga_ingresa_libro" class="btn btn-danger btn_form">Nuevo libro</a>
+                <a href="/log/<%= id %>" class="btn btn-danger btn_form" >Log usuario <%= activo %></a>        
+            </div>
+            <br/>   
+
+            <table id="tablaArticulos" class="table table-hover table-bordered" style="width:100%; font-size: 14px; ">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Autor</th>
+                        <th>Descripcion</th>   
+                        <th>Imagen</th>                             
+                        <th></th>                             
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data){ %>
+                    <% for(var i=0; i < data.length; i++){ %>
+                    <tr>
+                        <td><%= data[i].id %></td>
+                        <td><%= data[i].titulo %></td>
+                        <td><%= data[i].autor %></td>
+                        <td><%= data[i].desceipcion %></td>
+                        <td>
+                            <img src="/upload/<%= data[i].path_img %>" alt="<%= data[i].path_img %>" width="90" height="90">
+                        </td>
+                        <td>
+                            <a href="/delete/<%= data[i].id %>/<%= data[i].titulo %>" onclick="return confirm('Esta seguro de eliminar?');" class="btn btn-danger">Borrar</a>
+                            <a href="/update/<%= data[i].id %>/<%= data[i].titulo %>"   class="btn btn-warning">Editar</a>
+                        </td>
+                    </tr>
+                    <% } %>
+                    <% } %>                
+                </tbody>
+            </table> 
+            <% } else { %>
+            <label id="usuario_activo">Usuario sin sesion</label>
+            <a href="/" class="btn btn-danger btn_form" >Login</a>
+            <% }%>
+        </div><!--login-form-wrap-->
+        <!-- partial -->
+
+    </body>
+</html>
